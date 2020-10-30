@@ -1,0 +1,587 @@
+/* Template: Comic CBNS 2020 - Comic Book WebSite
+   Author: OneCube
+   Created: Nov 2020
+   Description: Master CSS file
+*/
+
+/****************************************
+text color yellow shade - #FDF150
+back ground color black shade - #262427
+font-family - "Open Sans", sans-serif
+****************************************/
+
+/*****************************************
+Table Of Contents:
+
+01. General Styles
+02. Preloader
+03. Navigation
+04. Header
+05. Home
+21. Media Queries
+******************************************/
+
+
+/******************************/
+/*     01. General Styles     */
+/******************************/
+:root {
+	font-size: 16px;
+	--color-bg: #191919;
+	--color-text: #fff;
+	--color-accent: #FDF150;
+}
+
+body,
+html {
+    width: 100%;
+	height: 100%;
+	font-family: "Open Sans", sans-serif;
+}
+
+body, p {
+	color: #787976; 
+	font: 400 1rem/1.5625rem;
+}
+
+.p-large {
+	font: 400 1.125rem/1.625rem;
+}
+
+.p-small {
+	font: 400 0.875rem/1.375rem;
+}
+
+.p-heading {
+	margin-bottom: 3.5rem;
+	text-align: center;
+}
+
+h1 {
+	color: #484a46;
+	font: 700 2.5rem/3rem "Open Sans", sans-serif;
+}
+
+h2 {
+	color: #484a46;
+	font: 700 1.75rem/2.125rem "Open Sans", sans-serif;
+}
+
+h3 {
+	color: #484a46;
+	font: 700 1.375rem/1.75rem "Open Sans", sans-serif;
+}
+
+h4 {
+	color: #484a46;
+	font: 700 1.25rem/1.625rem "Open Sans", sans-serif;
+}
+
+h5 {
+	color: #484a46;
+	font: 700 1.125rem/1.5rem "Open Sans", sans-serif;
+}
+
+h6 {
+	color: #484a46;
+	font: 700 1rem/1.375rem "Open Sans", sans-serif;
+}
+
+a {
+	color: #FDF150;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #efefef;
+	text-decoration: none;
+}
+
+strong {
+	color: #484a46;
+}
+
+.section-title {
+	color: #14bf98;
+	font: 500 0.8125rem/1.125rem "Open Sans", sans-serif;
+}
+/* IE10+ hack to solve lower label text position compared to the rest of the browsers */
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+	
+}
+
+
+
+/* IE10+ hack to solve lower label text position compared to the rest of the browsers */
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+
+}
+
+.checkbox {
+	font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
+}
+
+input[type='checkbox'] {
+	vertical-align: -15%;
+	margin-right: 0.375rem;
+}
+
+/* IE10+ hack to raise checkbox field position compared to the rest of the browsers */
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+	input[type='checkbox'] {
+		vertical-align: -9%;
+	}
+}
+/* end of fade animation for image slider - magnific popup */
+
+
+/*************************/
+/*     02. Preloader     */
+/*************************/
+.spinner-wrapper {
+	position: fixed;
+	z-index: 999999;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #262427;
+}
+
+.spinner {
+	position: absolute;
+	top: 50%; /* centers the loading animation vertically one the screen */
+	left: 50%; /* centers the loading animation horizontally one the screen */
+	width: 3.75rem;
+	height: 1.25rem;
+	margin: -0.625rem 0 0 -1.875rem; /* is width and height divided by two */ 
+	text-align: center;
+}
+
+.spinner > div {
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	background-color: #FDF150;
+	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+	0%, 80%, 100% { -webkit-transform: scale(0); }
+	40% { -webkit-transform: scale(1.0); }
+}
+
+@keyframes sk-bouncedelay {
+	0%, 80%, 100% { 
+		-webkit-transform: scale(0);
+		-ms-transform: scale(0);
+		transform: scale(0);
+	} 40% { 
+		-webkit-transform: scale(1.0);
+		-ms-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+}
+
+
+/**************************/
+/*     03. Navigation     */
+/**************************/
+.navbar-custom {
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+	background-color: #262427;
+	box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+	font: 600 0.875rem/0.875rem "Open Sans", sans-serif;
+	transition: all 0.2s;
+}
+
+.navbar-custom .navbar-brand {
+	font-size: 0;
+}
+
+.navbar-custom .navbar-brand.logo-image img {
+    width: 7.0625rem;
+	height: 2rem;
+	-webkit-backface-visibility: hidden;
+}
+
+.navbar-custom .navbar-brand.logo-text {
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+	font: 700 2.25rem/1.5rem "Open Sans", sans-serif;
+	color: #efefef;
+	text-decoration: none;
+}
+
+.navbar-custom .navbar-nav {
+	margin-top: 0.75rem;
+	margin-bottom: 0.5rem;
+}
+
+.navbar-custom .nav-item {
+	padding-right: 10px;
+}
+
+.navbar-custom .nav-item .nav-link {
+	padding: 0.625rem 0.75rem 0.625rem 0.75rem;
+	color: #FDF150;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.navbar-custom .nav-item .nav-link:hover,
+.navbar-custom .nav-item .nav-link.active {
+	color: #efefef;
+}
+
+/* Dropdown Menu */
+.navbar-custom .dropdown:hover > .dropdown-menu {
+	display: block; /* this makes the dropdown menu stay open while hovering it */
+	min-width: auto;
+	animation: fadeDropdown 0.2s; /* required for the fade animation */
+}
+
+@keyframes fadeDropdown {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.navbar-custom .dropdown-toggle:focus { /* removes dropdown outline on focus  */
+	outline: 0;
+}
+
+.navbar-custom .dropdown-menu {
+	margin-top: 0;
+	border: none;
+	border-radius: 0.25rem;
+	background-color: #262427;
+}
+
+.navbar-custom .dropdown-item {
+	color: #FDF150;
+	text-decoration: none;
+}
+
+.navbar-custom .dropdown-item:hover {
+	background-color: #262427;
+}
+
+.navbar-custom .dropdown-item .item-text {
+	font: 600 0.875rem/0.875rem "Open Sans", sans-serif;
+}
+
+.navbar-custom .dropdown-item:hover .item-text {
+	color: #efefef;
+}
+
+.navbar-custom .dropdown-items-divide-hr {
+	width: 100%;
+	height: 1px;
+	margin: 0.75rem auto 0.75rem auto;
+	border: none;
+	background-color: #b5bcc4;
+	opacity: 0.2;
+}
+/* end of dropdown menu */
+
+.navbar-custom .social-icons {
+	display: none;
+}
+
+.navbar-custom .navbar-toggler {
+	border: none;
+    outline: none;
+    color: #FDF150;
+    font-size: 28px;
+}
+
+.navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fa.fa-times{
+	display: none;
+}
+
+.navbar-custom button[aria-expanded='false'] .navbar-toggler-awesome.fa.fa-bars{
+	display: inline-block;
+}
+
+.navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fa.fa-bars{
+	display: none;
+}
+
+.navbar-custom button[aria-expanded='true'] .navbar-toggler-awesome.fa.fa-times{
+	display: inline-block;
+	margin-right: 0.125rem;
+}
+
+
+/*********************/
+/*    04. Header     */
+/*********************/
+.header-main {
+	padding-bottom: 20px;
+}
+
+.bg-section-secondary {
+	padding-top: 30px;
+    padding-bottom: 30px;
+	color: #262427;
+}
+
+.text-section {	
+	color: linear-gradient(to right, var(--color-bg), var(--color-accent), var(--color-bg));
+	font-size: 32px;
+	font-weight: 900;
+	background: -webkit-linear-gradient(#262427, #122538b5);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.btn-block {
+	font-size: 18px;
+	font-weight: 700;
+	background-color: #262427;
+	color: #FDF150;
+	padding: 10px 10px;
+	text-decoration: none;
+	border: none;
+	text-transform: uppercase;
+}
+
+.btn-search {
+	padding: 20px;
+}
+
+.btn-search a :hover {
+	background-color: black;
+}
+
+.slice-sm {
+    padding: 2rem;
+}
+
+.img-fluid {
+    height: 160px;
+    padding: 0px 15px;
+}
+
+.btn-xl {
+	padding: 0px;
+}
+
+.feature-name {
+	font-size: 20px;
+	font-weight: 700;
+	cursor: pointer;
+	text-decoration: none;
+	color: #262427;
+}
+
+/*****************************/
+/*     05. Home    */
+/*****************************/	
+.bg-cover {
+	background-color: #262427;
+	padding-top: 80px;
+}
+
+.text-logo {	
+	color: #FDF150;
+	text-align: center;
+}
+
+.store-logo {
+	height: 50px;
+    width: auto;
+	padding-right: 20px;
+}
+
+.landing-phone {
+	height: 400px;
+}
+
+.btn-nav {
+	background-color: #FDF150;
+    border-radius: 30px;
+    color: #262427 !important;
+}
+
+/*****************************/
+/*     06. Section     */
+/*****************************/	
+.section-divider {
+	display: block;
+	border: none;
+}
+.section-divider.-faded-edges {
+	height: 3px;
+	background-image: linear-gradient(to right, var(--color-bg), var(--color-accent), var(--color-bg));
+}
+
+/*****************************/
+/*     21. Media Queries     */
+/*****************************/	
+@media (min-width: 768px) {
+	
+	/* General Styles */
+	.p-heading {
+		width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	/* end of general styles */
+
+
+	/* Navigation */
+	.navbar-custom {
+		padding: 1rem 11rem 1rem 1rem;
+		box-shadow: none;
+	}
+	
+	.navbar-custom .navbar-brand.logo-text {
+		color: #fff;
+	}
+
+	.navbar-custom .navbar-nav {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	
+	.navbar-custom .nav-item .nav-link:hover,
+	.navbar-custom .nav-item .nav-link.active {
+		color: #efefef;
+	}
+
+	.navbar-custom.top-nav-collapse {
+        padding: 0.75rem 2rem 0.75rem 2rem;
+		box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+	}
+
+	.navbar-custom .dropdown-menu {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		border-top: 0.75rem solid rgba(0, 0, 0, 0);
+		border-radius: 0.25rem;
+		box-shadow: 0 0.25rem 0.375rem 0 rgba(0, 0, 0, 0.03);
+	}
+	
+	.navbar-custom.top-nav-collapse .dropdown-menu {
+		border-top: 0.125rem solid rgba(0, 0, 0, 0);
+	}
+
+	.navbar-custom .dropdown-item {
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+	}
+
+	.navbar-custom .dropdown-items-divide-hr {
+		width: 84%;
+	}
+	/* end of navigation */
+
+
+	/* Header */
+	.header .header-content {
+		padding-top: 13rem;
+		padding-bottom: 7.5rem;
+	}
+
+	.header h1 {
+		font: 700 3.5rem/4rem "Open Sans", sans-serif;
+	}
+	/* end of header */
+}
+/* end of min-width width 768px */
+
+
+/* Min-width width 992px */
+@media (min-width: 992px) {
+	
+	/* General Styles */
+	.p-heading {
+		width: 65%;
+	}
+	/* end of general styles */
+
+	/* Header */
+	.header .header-content {
+		padding-top: 14rem;
+		padding-bottom: 15rem;
+	}
+
+	.header .text-container {
+		margin-top: 6.5rem;
+	}
+	/* end of header */
+}
+/* end of min-width width 992px */
+
+
+/* Min-width width 1200px */
+@media (min-width: 1200px) {
+	
+	/* General Styles */
+	.p-heading {
+		width: 55%;
+	}
+	/* end of general styles */
+
+
+	/* Navigation */
+	.navbar-custom {
+		padding-right: 2rem;
+		padding-left: 5rem;
+	}
+
+	.navbar-custom.top-nav-collapse {
+		padding-right: 5rem;
+		padding-left: 5rem;
+	}
+	/* end of navigation */
+
+	
+	/* Header */
+	.header .header-content {
+		padding-top: 14.75rem;
+		padding-bottom: 17.5rem;
+	}
+	/* end of header */
+}
+/* end of min-width width 1200px */
+
+
+/* Min-width width 1600px */
+@media (min-width: 1600px) {
+	
+	/* Navigation */
+	.navbar-custom {
+		padding-right: 12rem;
+		padding-left: 12rem;
+	}
+
+	.navbar-custom.top-nav-collapse {
+		padding-right: 12rem;
+		padding-left: 12rem;
+	}
+	/* end of navigation */
+}
+/* end of min-width width 1200px */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
