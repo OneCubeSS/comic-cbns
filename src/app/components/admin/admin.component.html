@@ -1,0 +1,90 @@
+<!-- <section style="padding-top: 100px" class="slice slice-sm bg-section-secondary">
+  <div class="container">
+    <h2 class="text-center text-section">ADMIN LOGIN</h2>
+    <hr class="section-admin" />
+    <div class="row justify-content-center">
+      <form id="admin" 
+      [formGroup]="loginForm"
+      (ngSubmit)="loginProcess()">
+      <span class="error">{{message}}</span>
+        <div class="row">
+          <mat-label class="label-txt">Email Address</mat-label>
+          <mat-form-field>
+            <input type="text" matInput type="email" formControlName="email" />
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter your username</span>
+          </mat-error>
+        </div>
+
+        <div class="row">
+          <mat-label class="label-txt">Password</mat-label>
+          <mat-form-field>
+            <input type="text" matInput type="password" formControlName="password"/>
+            <mat-error>
+              <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="row adn-lk">
+          <div class="col-md-8" style="margin-top: 10px;">
+            <a href="#">Lost your Password ?</a>
+          </div>
+          <div class="col-md-2">
+            <button [disabled]="!loginForm.valid" Class="btn-in" mat-raised-button color="primary">SIGN IN</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section> -->
+
+  <div class="container" style="padding-top: 100px">
+    <div class="row">
+      <div class="pad-cont">
+        <h2 class="text-center text-section">ADMIN LOGIN</h2>
+        <hr class="section-admin" />
+        <div class="service-item">
+          <div class="down-content">
+            <form
+              [formGroup]="loginForm"
+              (ngSubmit)="loginProcess()"
+            >
+            <span class="error">{{message}}</span>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>User Email</mat-label>
+                  <input matInput  class="text-input" type="email" formControlName="email">
+                  <mat-error>
+                    <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter your username</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password"  class="text-input" formControlName="password">
+                  <mat-error>
+                    <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="row pb-5 text-center" style="padding: 10px 5px;">
+                  <div class="col-md-4">
+                    <button [disabled]="!loginForm.valid" mat-raised-button color="primary">SIGN IN</button>
+                  </div>
+                  <div class="col-md-8">
+                    <button mat-raised-button color="primary">Lost your Password ?</button>
+                    <!-- <a href="#" class="lostpwd mt-2">Lost your Password ?</a> -->
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
