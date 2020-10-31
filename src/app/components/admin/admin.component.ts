@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
     if(!this.isLoggedIn()) {
       this.initForm();
     } else {
-      this.router.navigate(['admin/editcategories']);
+      this.router.navigate(['admin/landing']);
     }
   }
   isLoggedIn(): boolean {
@@ -39,7 +39,7 @@ export class AdminComponent implements OnInit {
         console.log("result: ", result);
         if (result.token) {
           localStorage.setItem('access_token', result.token);
-          this.router.navigate(['admin/editcategories']);
+          this.router.navigate(['admin/landing']);
         } else {
           this.message = result.message;
         }

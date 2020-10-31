@@ -19,9 +19,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { EdtcaterogyComponent } from './components/admin/edtcaterogy/edtcaterogy.component';
 import { EdtbookComponent } from './components/admin/edtbook/edtbook.component';
+import { CategorydetailsComponent } from './components/admin/categorydetails/categorydetails.component';
+import { BookdetailsComponent } from './components/admin/bookdetails/bookdetails.component';
+import { AddbookComponent } from './components/admin/addbook/addbook.component';
+import { AddcategoryComponent } from './components/admin/addcategory/addcategory.component';
+import { LandingComponent } from './components/admin/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +39,12 @@ import { EdtbookComponent } from './components/admin/edtbook/edtbook.component';
     LoginComponent,
     AdminComponent,
     EdtcaterogyComponent,
-    EdtbookComponent
+    EdtbookComponent,
+    CategorydetailsComponent,
+    BookdetailsComponent,
+    AddbookComponent,
+    AddcategoryComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +55,7 @@ import { EdtbookComponent } from './components/admin/edtbook/edtbook.component';
     MatTableModule,
     MatIconModule,
     MatCardModule,
+    MatTabsModule,
     NoopAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
