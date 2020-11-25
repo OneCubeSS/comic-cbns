@@ -336,6 +336,7 @@ input[type='checkbox'] {
 /*********************/
 .header-main {
 	padding-bottom: 20px;
+	background: url(/assets/images/cover-image.jpg);
 }
 
 .bg-section-secondary {
@@ -377,8 +378,10 @@ input[type='checkbox'] {
 }
 
 .img-fluid {
-    height: 160px;
+	height: 160px;
+    width: 180px;
     padding: 0px 15px;
+    max-width: 180px;
 }
 
 .btn-xl {
@@ -391,13 +394,15 @@ input[type='checkbox'] {
 	cursor: pointer;
 	text-decoration: none;
 	color: #262427;
+	padding-right: 20px;
 }
 
 /*****************************/
 /*     05. Home    */
 /*****************************/	
 .bg-cover {
-	background-color: #262427;
+	/* background-color: #262427; */
+	background: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0,0.5));
 	padding-top: 80px;
 }
 

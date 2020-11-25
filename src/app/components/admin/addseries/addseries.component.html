@@ -8,7 +8,10 @@
       >
     </div>
     <mat-card class="example-card">
-      <form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+      <form [formGroup]="seriesForm" (ngSubmit)="onFormSubmit()">
+        
+        <!-- Add Publisher Select -->
+
         <div class="form-group rowdg">
           <div class="col-md-5">
             <mat-label>Title</mat-label>
@@ -24,14 +27,39 @@
             <mat-error>
               <span
                 *ngIf="
-                  !bookForm.get('title').valid &&
-                  bookForm.get('title').touched
+                  !seriesForm.get('title').valid &&
+                  seriesForm.get('title').touched
                 "
                 >Please enter title</span
               >
             </mat-error>
           </div>
         </div>
+
+        <!-- Modify to select Year and Month -->
+        <div class="form-group rowdg">
+            <div class="col-md-5">
+              <mat-label>Year</mat-label>
+            </div>
+            <div class="col-md-6">
+              <input
+                matInput
+                placeholder="Year"
+                formControlName="year"
+                [errorStateMatcher]="matcher"
+                class="form-control"
+              />
+              <mat-error>
+                <span
+                  *ngIf="
+                    !seriesForm.get('year').valid &&
+                    seriesForm.get('year').touched
+                  "
+                  >Please enter year</span
+                >
+              </mat-error>
+            </div>
+          </div>
   
         <div class="form-group rowdg">
           <div class="col-md-5">
@@ -53,37 +81,13 @@
             <mat-label>Preview</mat-label>
           </div>
           <div class="col-md-6" *ngIf="preview && preview !== null">
-            <img [src]="preview" [alt]="bookForm.value.covermedia" />
+            <img [src]="preview" [alt]="seriesForm.value.covermedia" />
           </div>
         </div>
-
-        <div class="form-group rowdg">
-            <div class="col-md-5">
-              <mat-label>Description</mat-label>
-            </div>
-            <div class="col-md-6">
-              <textarea
-                matInput
-                placeholder="Description"
-                formControlName="description"
-                [errorStateMatcher]="matcher"
-                class="form-control"
-              > </textarea>
-              <mat-error>
-                <span
-                  *ngIf="
-                    !bookForm.get('description').valid &&
-                    bookForm.get('description').touched
-                  "
-                  >Please enter description</span
-                >
-              </mat-error>
-            </div>
-          </div>
   
         <button
           type="submit"
-          [disabled]="!bookForm.valid"
+          [disabled]="!seriesForm.valid"
           mat-flat-button
           color="primary"
         >

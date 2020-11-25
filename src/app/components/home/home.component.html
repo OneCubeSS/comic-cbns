@@ -73,85 +73,75 @@
 
 <!-- Search section -->
 <section class="slice slice-sm bg-section-secondary">
-  <div class="container">      
-      <h2 class="text-center text-section">SEARCH OPTIONS</h2>
-      <hr class="section-divider -faded-edges">
-      <div class="slice slice-sm">
-          <div class="row justify-content-center">
-              <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
-                      <a href="/search-titles/" class="btn  btn-block">Search Titles</a>
-              </div>
-              <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
-                  <a href="/search-characters/" class="btn btn-block mt-2 mt-sm-0">Search Characters</a>
-              </div>
-              <div class="col-12 col-sm-5 col-md-6 col-lg-3 mt-sm-4 mt-lg-0 btn-search">
-                  <a href="/recent/" class="btn btn-block mt-2 mt-sm-0">Recently Added</a>
-              </div>
-          </div>      
+  <div class="container">
+    <h2 class="text-center text-section">SEARCH OPTIONS</h2>
+    <hr class="section-divider -faded-edges" />
+    <div class="slice slice-sm">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
+          <a href="/search-titles/" class="btn btn-block">Search Titles</a>
+        </div>
+        <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
+          <a href="/search-characters/" class="btn btn-block mt-2 mt-sm-0"
+            >Search Characters</a
+          >
+        </div>
+        <!-- <div
+          class="col-12 col-sm-5 col-md-6 col-lg-3 mt-sm-4 mt-lg-0 btn-search"
+        >
+          <a href="/recent/" class="btn btn-block mt-2 mt-sm-0"
+            >Recently Added</a
+          >
+        </div> -->
       </div>
+    </div>
   </div>
 </section>
 <!-- End search section -->
 
 <!-- Category section -->
 <section class="slice slice-sm bg-section-secondary">
-  <div class="container">      
-      <h2 class="text-center text-section">SPOTLIGHT CATEGORIES</h2>
-      <hr class="section-divider -faded-edges">
-      <div class="slice slice-sm">
-          <div class="row justify-content-center">
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-2 mb-5">
-              <a href="/category/id" class="btn btn-default btn-xl mb-4">
-                  <img class="img-fluid" src="https://media.keycollectorcomics.com/media/b1599960958885fb5f80d7-8931-40ec-9812-49b0ad87fe45.jpeg">
-              </a>
-              <a href="/category/id" class=""><div class="text-center feature-name">NKOTB</div></a>
-            </div>
-          </div>      
+  <div class="container">
+    <h2 class="text-center text-section">SPOTLIGHT CATEGORIES</h2>
+    <hr class="section-divider -faded-edges" />
+    <div class="slice slice-sm">
+      <div class="example-loading-shade" *ngIf="isLoadingCats">
+        <mat-spinner *ngIf="isLoadingCats"></mat-spinner>
       </div>
+
+      <div class="row justify-content-center" *ngIf="checkData(dataCat)">
+        <div
+          class="col-6 col-sm-4 col-md-3 mb-5"
+          *ngFor="let item of dataCat; let i = index"
+        >
+          <div class="col-md-12">
+            <a
+              [routerLink]="['/publisher/series', item._id]"
+              class="btn btn-default btn-xl mb-4"
+            >
+              <img class="img-fluid" [src]="baseImgUrl + item.covermedia" />
+            </a>
+          </div>
+          <div class="col-md-12">
+            <a [routerLink]="['/publisher/series', item._id]" class="">
+              <div class="text-center feature-name">{{ item.title }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- End Category section -->
 
 <!-- Category section -->
 <section class="slice slice-sm bg-section-secondary">
-  <div class="container">      
-      <h2 class="text-center text-section">WHAT ARE TRENDING ISSUES</h2>
-      <hr class="section-divider -faded-edges">
-      <div class="slice slice-sm">
-          <div class="row justify-content-center">
-            
-          </div>      
-      </div>
+  <div class="container">
+    <h2 class="text-center text-section">WHAT ARE TRENDING ISSUES</h2>
+    <hr class="section-divider -faded-edges" />
+    <div class="slice slice-sm">
+      <div class="row justify-content-center"></div>
+    </div>
   </div>
 </section>
 <!-- End Category section -->

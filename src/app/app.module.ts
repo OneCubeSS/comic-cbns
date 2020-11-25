@@ -29,6 +29,12 @@ import { BookdetailsComponent } from './components/admin/bookdetails/bookdetails
 import { AddbookComponent } from './components/admin/addbook/addbook.component';
 import { AddcategoryComponent } from './components/admin/addcategory/addcategory.component';
 import { LandingComponent } from './components/admin/landing/landing.component';
+import { EdtseriesComponent } from './components/admin/edtseries/edtseries.component';
+import { AddseriesComponent } from './components/admin/addseries/addseries.component';
+import { SeriesdetailsComponent } from './components/admin/seriesdetails/seriesdetails.component';
+import { SeriesComponent } from './components/series/series.component';
+import { IssuesComponent } from './components/issues/issues.component';
+import { IssuedetailsComponent } from './components/issuedetails/issuedetails.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,13 @@ import { LandingComponent } from './components/admin/landing/landing.component';
     BookdetailsComponent,
     AddbookComponent,
     AddcategoryComponent,
-    LandingComponent
+    LandingComponent,
+    EdtseriesComponent,
+    AddseriesComponent,
+    SeriesdetailsComponent,
+    SeriesComponent,
+    IssuesComponent,
+    IssuedetailsComponent
   ],
   imports: [
     BrowserModule,

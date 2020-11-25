@@ -1,23 +1,23 @@
 <div class="container" style="padding-top: 100px">
   <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Categories">
-        <h5>Categories List</h5>
+    <mat-tab label="Publishers">
+        <h5>Publishers List</h5>
         <div class="example-container">
             <div class="example-loading-shade"
                   *ngIf="isLoadingCats">
               <mat-spinner *ngIf="isLoadingCats"></mat-spinner>
             </div>
             <div class="col-md-4" style="padding-left: 20px;">
-              <a mat-flat-button color="primary" [routerLink]="['/admin/addcategory']"><mat-icon>add</mat-icon>Categories</a>
+              <a mat-flat-button color="primary" [routerLink]="['/admin/addcategory']"><mat-icon>add</mat-icon>Publisher</a>
             </div>
             <div>
               <table mat-table [dataSource]="dataCat" class="example-table"
-                      matSort matSortActive="name" matSortDisableClear matSortDirection="asc">
+                      matSort matSortActive="title" matSortDisableClear matSortDirection="asc">
           
                 <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef class="header-post">Category Name</th>
-                  <td mat-cell *matCellDef="let row">{{row.name}}</td>
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef class="header-post">Publisher</th>
+                  <td mat-cell *matCellDef="let row">{{row.title}}</td>
                 </ng-container>
           
                 <!-- media Column -->
@@ -27,13 +27,83 @@
                       <img [src]="baseImgUrl + row.covermedia" />
                     </td>
                 </ng-container>
+
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let row">
+                    <a mat-flat-button color="primary" [routerLink]="['/admin/editcategory/', row._id]"><mat-icon>edit</mat-icon></a>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let row">
+                    <a mat-flat-button color="warn" (click)="deletePublisher(row._id)"><mat-icon>delete</mat-icon></a>
+                  </td>
+                </ng-container>
           
                 <tr mat-header-row *matHeaderRowDef="catColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: catColumns;" [routerLink]="['/admin/editcategory/', row._id]"></tr>
+                <tr mat-row *matRowDef="let row; columns: catColumns;"></tr>
               </table>
             </div>
           </div>
     </mat-tab>
+
+    <mat-tab label="Series">
+      <h5>Series List</h5>
+      <div class="example-container">
+          <div class="example-loading-shade"
+                *ngIf="isLoadingSeries">
+            <mat-spinner *ngIf="isLoadingSeries"></mat-spinner>
+          </div>
+          <div class="col-md-4" style="padding-left: 20px;">
+            <a mat-flat-button color="primary" [routerLink]="['/admin/addseries']"><mat-icon>add</mat-icon>Series</a>
+          </div>
+          <div>
+            <table mat-table [dataSource]="dataSeries" class="example-table"
+                    matSort matSortActive="title" matSortDisableClear matSortDirection="asc">
+        
+              <!-- Name Column -->
+              <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="header-post">Series</th>
+                <td mat-cell *matCellDef="let row">{{row.title}}</td>
+              </ng-container>
+        
+              <!-- media Column -->
+              <ng-container matColumnDef="covermedia">
+                <th mat-header-cell *matHeaderCellDef class="header-post">Media</th>
+                <td mat-cell *matCellDef="let row">
+                    <img [src]="baseImgUrl + row.covermedia" />
+                  </td>
+              </ng-container>
+
+              <!-- year Column -->
+              <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef class="header-post">Year</th>
+                <td mat-cell *matCellDef="let row">{{row.year}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row">
+                  <a mat-flat-button color="primary" [routerLink]="['/admin/editseries/', row._id]"><mat-icon>edit</mat-icon></a>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let row">
+                  <a mat-flat-button color="warn" (click)="deleteSeries(row._id)"><mat-icon>delete</mat-icon></a>
+                </td>
+              </ng-container>
+        
+              <tr mat-header-row *matHeaderRowDef="seriesColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: seriesColumns;"></tr>
+            </table>
+          </div>
+        </div>
+  </mat-tab>
+
     <mat-tab label="Books">
         <h5>Books List</h5>
         <div class="example-container">
@@ -60,6 +130,32 @@
                   <td mat-cell *matCellDef="let row">
                       <img [src]="baseImgUrl + row.covermedia" />
                     </td>
+                </ng-container>
+
+                 <!-- description Column -->
+                 <ng-container matColumnDef="desc">
+                  <th mat-header-cell *matHeaderCellDef class="header-post">Description</th>
+                  <td mat-cell *matCellDef="let row">{{row.description}}</td>
+                </ng-container>
+
+                 <!-- description Column -->
+                 <ng-container matColumnDef="year">
+                  <th mat-header-cell *matHeaderCellDef class="header-post">year</th>
+                  <td mat-cell *matCellDef="let row">{{row.year}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let row">
+                    <a mat-flat-button color="primary" [routerLink]="['/admin/editbook/', row._id]"><mat-icon>edit</mat-icon></a>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let row">
+                    <a mat-flat-button color="warn" (click)="deleteBook(row._id)"><mat-icon>delete</mat-icon></a>
+                  </td>
                 </ng-container>
           
                 <tr mat-header-row *matHeaderRowDef="bookColumns"></tr>

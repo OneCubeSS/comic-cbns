@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import {
   FormControl,
   FormGroupDirective,
@@ -27,16 +27,17 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-edtcaterogy',
-  templateUrl: './edtcaterogy.component.html',
-  styleUrls: ['./edtcaterogy.component.css']
+  selector: 'app-addseries',
+  templateUrl: './addseries.component.html',
+  styleUrls: ['./addseries.component.css']
 })
-export class EdtcaterogyComponent implements OnInit {
+export class AddseriesComponent implements OnInit { 
   baseImgUrl = "http://localhost:4000/";
-  pubForm: FormGroup;
+  seriesForm: FormGroup;
   _id = '';
   title = '';
   covermedia = '';
+  year = '';
   preview: string;
   image;
   isLoadingResults = false;
@@ -44,26 +45,17 @@ export class EdtcaterogyComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private apiService: ApiService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    this.getCategory(this.route.snapshot.params.id);
-    this.pubForm = this.formBuilder.group({
+    if(!this.isLoggedIn()) {
+      this.router.navigate(['adminlogin']);
+    } 
+    this.seriesForm = this.formBuilder.group({
       title: [null, Validators.required],
-    });
-  }
-
-  getCategory(id: any) {
-    this.apiService.getPublisher(id).subscribe((res) => {
-      console.log("data: ", res.data);
-      this._id = res.data._id;
-      this.preview = this.baseImgUrl + res.data.covermedia;
-      this.pubForm.setValue({
-        title: res.data.title,
-      });
+      year: [null, Validators.required],
     });
   }
 
@@ -99,15 +91,17 @@ export class EdtcaterogyComponent implements OnInit {
 
   onFormSubmit() {
     this.isLoadingResults = true;
-    const test = this.toFormData(this.pubForm.value);
+    const test = this.toFormData(this.seriesForm.value);
     
     if(this.image) {
       test.append('covermedia', this.image);
     }
-    this.apiService.updatePublisher(this._id, test).subscribe(
+
+    this.apiService.addSeries(test).subscribe(
       (res) => {
+        const id = res.data._id;
         this.isLoadingResults = false;
-        this.router.navigate(['/admin/landing']);
+        this.router.navigate(['/admin/seriesdetails', id]);
       },
       (err: any) => {
         console.log(err);
@@ -119,4 +113,5 @@ export class EdtcaterogyComponent implements OnInit {
   backLanding() {
     this.router.navigate(['/admin/landing']);
   }
+
 }

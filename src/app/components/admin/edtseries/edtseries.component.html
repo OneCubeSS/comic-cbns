@@ -8,7 +8,7 @@
     >
   </div>
   <mat-card class="example-card">
-    <form [formGroup]="pubForm" (ngSubmit)="onFormSubmit()">
+    <form [formGroup]="seriesForm" (ngSubmit)="onFormSubmit()">
       <div class="form-group rowdg">
         <div class="col-md-5">
           <mat-label>Title</mat-label>
@@ -24,8 +24,8 @@
           <mat-error>
             <span
               *ngIf="
-                !pubForm.get('title').valid &&
-                pubForm.get('title').touched
+                !seriesForm.get('title').valid &&
+                seriesForm.get('title').touched
               "
               >Please enter title</span
             >
@@ -53,13 +53,13 @@
           <mat-label>Preview</mat-label>
         </div>
         <div class="col-md-6" *ngIf="preview && preview !== null">
-          <img [src]="preview" [alt]="pubForm.value.covermedia" />
+          <img [src]="preview" [alt]="seriesForm.value.covermedia" />
         </div>
       </div>
 
       <button
         type="submit"
-        [disabled]="!pubForm.valid"
+        [disabled]="!seriesForm.valid"
         mat-flat-button
         color="primary"
       >

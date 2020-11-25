@@ -27,13 +27,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-edtcaterogy',
-  templateUrl: './edtcaterogy.component.html',
-  styleUrls: ['./edtcaterogy.component.css']
+  selector: 'app-edtseries',
+  templateUrl: './edtseries.component.html',
+  styleUrls: ['./edtseries.component.css']
 })
-export class EdtcaterogyComponent implements OnInit {
+export class EdtseriesComponent implements OnInit {
   baseImgUrl = "http://localhost:4000/";
-  pubForm: FormGroup;
+  seriesForm: FormGroup;
   _id = '';
   title = '';
   covermedia = '';
@@ -50,18 +50,18 @@ export class EdtcaterogyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCategory(this.route.snapshot.params.id);
-    this.pubForm = this.formBuilder.group({
+    this.getSeries(this.route.snapshot.params.id);
+    this.seriesForm = this.formBuilder.group({
       title: [null, Validators.required],
     });
   }
 
-  getCategory(id: any) {
-    this.apiService.getPublisher(id).subscribe((res) => {
+  getSeries(id: any) {
+    this.apiService.getSeries(id).subscribe((res) => {
       console.log("data: ", res.data);
       this._id = res.data._id;
       this.preview = this.baseImgUrl + res.data.covermedia;
-      this.pubForm.setValue({
+      this.seriesForm.setValue({
         title: res.data.title,
       });
     });
@@ -99,12 +99,12 @@ export class EdtcaterogyComponent implements OnInit {
 
   onFormSubmit() {
     this.isLoadingResults = true;
-    const test = this.toFormData(this.pubForm.value);
+    const test = this.toFormData(this.seriesForm.value);
     
     if(this.image) {
       test.append('covermedia', this.image);
     }
-    this.apiService.updatePublisher(this._id, test).subscribe(
+    this.apiService.updateSeries(this._id, test).subscribe(
       (res) => {
         this.isLoadingResults = false;
         this.router.navigate(['/admin/landing']);
@@ -119,4 +119,5 @@ export class EdtcaterogyComponent implements OnInit {
   backLanding() {
     this.router.navigate(['/admin/landing']);
   }
+
 }
