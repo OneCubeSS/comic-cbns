@@ -1,5 +1,29 @@
 <div class="container" style="padding-top: 100px">
-  <div class="slice slice-sm">
-    <h1>Book Details</h1>
+    <div class="slice slice-sm">
+      <div class="example-loading-shade" *ngIf="isLoading">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </div>
+  
+      <div class="row justify-content-center" *ngIf="checkData(data)">
+        <div
+          class="col-6 col-sm-4 col-md-3 mb-5"
+          *ngFor="let item of data; let i = index"
+        >
+          <div class="col-md-12">
+            <a
+              [routerLink]="['/issues-details', item._id]"
+              class="btn btn-default btn-xl mb-4"
+            >
+              <img class="img-fluid" [src]="baseImgUrl + item.covermedia" />
+            </a>
+          </div>
+          <div class="col-md-12">
+            <a [routerLink]="['/issues-details', item._id]" class="">
+              <div class="text-center feature-name">{{ item.title }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  

@@ -12,6 +12,7 @@ import { EdtseriesComponent } from './components/admin/edtseries/edtseries.compo
 import { LandingComponent } from './components/admin/landing/landing.component';
 import { SeriesdetailsComponent } from './components/admin/seriesdetails/seriesdetails.component';
 import { HomeComponent } from './components/home/home.component';
+import { IssuedetailsComponent } from './components/issuedetails/issuedetails.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { LoginComponent } from './components/login/login.component';
 import { SeriesComponent } from './components/series/series.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'publisher/series/:id', component: SeriesComponent },
   { path: 'series', component: SeriesComponent },
   { path: 'series/issues/:id', component: IssuesComponent },
-  { path: 'issues', component: IssuesComponent }
+  { path: 'issues', component: IssuesComponent },
+  { path: 'issues-details/:id', component: IssuedetailsComponent}
 ];
 
 @NgModule({
