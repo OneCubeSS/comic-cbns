@@ -10,7 +10,18 @@ import { Book } from '../admin/book';
 })
 export class IssuedetailsComponent implements OnInit {
   baseImgUrl = 'http://localhost:4000/';
-  data: Book[] = [];
+  data: Book = {
+    _id: '',
+    title: '',
+    year: '',
+    description: '',
+    writer: '',
+    illustrated: '',
+    publisher: '',
+    covermedia: '',
+    artist: '',
+    characters: []
+  };
   isLoading = true;
 
   constructor(
@@ -36,10 +47,17 @@ export class IssuedetailsComponent implements OnInit {
 
   getBooksById(id: any) {
     this.apiService.getBook(id).subscribe(
-      (res) => {
-        this.data = res.data;
-        console.log("data: ", this.data);
+      (res) => {        
+        console.log("data: ", res.data);
+        this.data.title = res.data.title;
+        this.data.description = res.data.description;
+        this.data.year = res.data.year;
+        this.data.writer = res.data.writer;
+        this.data.illustrated = res.data.illustrated;
+        this.data.covermedia = this.baseImgUrl + res.data.covermedia;
+        this.data.publisher = res.data.publisher.title;
         this.isLoading = false;
+        console.log("data: ", this.data);
       },
       (err) => {
         console.log('error: ', err);

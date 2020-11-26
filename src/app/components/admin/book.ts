@@ -1,6 +1,5 @@
 export class Book {
     _id: string;
-    category: [];
     title: string;
     covermedia: string;
     description: string;
@@ -10,5 +9,4 @@ export class Book {
     illustrated: string;
     characters: [];
     year: string;
-    variants: [];
   }
