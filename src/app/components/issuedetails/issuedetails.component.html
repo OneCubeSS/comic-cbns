@@ -1,40 +1,57 @@
 <div class="container" style="padding-top: 100px">
-  <div class="slice slice-sm">
+  <div class="row justify-content-center slice slice-sm">
     <div class="example-loading-shade" *ngIf="isLoading">
       <mat-spinner *ngIf="isLoading"></mat-spinner>
     </div>
-    <div>
-      <h3>Book Details</h3>
-    </div>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title class="header-txt">
-          <h4>Title</h4>
-          <h6>{{ data.title }}</h6>
-        </mat-card-title>
-      </mat-card-header>
-      <div class="pl-4 pt-2">
-        <img
-          mat-card-image
-          class="pl-2 card-image"
-          src="{{ data.covermedia }}"
-          alt="{{ data.title }}"
-        />
-        <mat-card-content class="card-content">
-          <dl>
-            <dt>Publisher</dt>
-            <dd>{{ data.publisher }}</dd>
-            <dt>Description</dt>
-            <dd>{{ data.description }}</dd>
-            <dt>Year</dt>
-            <dd>{{ data.year }}</dd>
-            <dt>Writer</dt>
-            <dd>{{ data.writer }}</dd>
-            <dt>Illustrated</dt>
-            <dd>{{ data.illustrated }}</dd>
-          </dl>
-        </mat-card-content>
+    <div class="col-12 col-xl-6 mb-5" *ngIf="!isLoading">
+      <mat-card class="example-card mb-5">
+        <mat-card-header>
+          <img
+            mat-card-image
+            class="pl-2 card-image pr-4"
+            src="{{ data.covermedia }}"
+            alt="{{ data.title }}"
+          />
+          <mat-card-title>{{ data.title }}</mat-card-title>
+          <!-- addition icons for buy and price check -->
+          <mat-card-subtitle>{{ data.description }}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+      <div class="mb-3">
+        <h4>Book Details</h4>
       </div>
-    </mat-card>
+
+      <mat-card class="example-card mb-5">
+        <mat-card-content class="card-content">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Publisher</td>                
+                <td class="td-txt">{{ data.publisher }}</td>
+                <!-- <td>
+                  <a href="">{{ data.publisher }}</a>
+                </td> -->
+              </tr>
+              <tr>
+                <td>Published Year</td>
+                <td class="td-txt">{{ data.year }}</td>
+              </tr>
+              <tr>
+                <td>Written By</td>
+                <td class="td-txt">{{ data.writer }}</td>
+              </tr>
+              <tr>
+                <td>Illustrated By</td>
+                <td class="td-txt">{{ data.illustrated }}</td>
+                <!-- <td>
+                  <a href="">{{ data.illustrated }}</a>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>
