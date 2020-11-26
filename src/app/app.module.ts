@@ -20,8 +20,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { EdtcaterogyComponent } from './components/admin/edtcaterogy/edtcaterogy.component';
 import { EdtbookComponent } from './components/admin/edtbook/edtbook.component';
 import { CategorydetailsComponent } from './components/admin/categorydetails/categorydetails.component';
@@ -68,7 +71,10 @@ import { IssuedetailsComponent } from './components/issuedetails/issuedetails.co
     MatIconModule,
     MatCardModule,
     MatTabsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     NoopAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

@@ -138,6 +138,12 @@ input[type='checkbox'] {
 /*************************/
 /*     02. Preloader     */
 /*************************/
+.mat-spinner {
+    position: relative;
+    margin-left: 45%;
+    margin-right: 40%;
+}
+
 .spinner-wrapper {
 	position: fixed;
 	z-index: 999999;
