@@ -9,6 +9,7 @@ import { Book } from '../admin/book';
   styleUrls: ['./issues.component.css']
 })
 export class IssuesComponent implements OnInit {
+  wishlisted = false;
   baseImgUrl = 'http://localhost:4000/';
   data: Book[] = [];
   isLoading = true;
@@ -60,5 +61,16 @@ export class IssuesComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  AddtoWishlist()
+  {
+    if(this.wishlisted==false)
+    {
+      this.wishlisted=true;
+    }
+    else{
+      this.wishlisted=false;
+    }
   }
 }

@@ -9,7 +9,7 @@ import { Book } from '../admin/book';
   styleUrls: ['./issuedetails.component.css']
 })
 export class IssuedetailsComponent implements OnInit {
-  wishlisted=false;
+  wishlisted = false;
   baseImgUrl = 'http://localhost:4000/';
   data: Book = {
     _id: '',

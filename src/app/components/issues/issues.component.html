@@ -6,22 +6,38 @@
   
       <div class="row justify-content-center" *ngIf="checkData(data)">
         <div
-          class="col-6 col-sm-4 col-md-3 mb-5"
+          class="col-6 col-sm-12 col-md-6 mb-5"
           *ngFor="let item of data; let i = index"
         >
-          <div class="col-md-12">
-            <a
-              [routerLink]="['/issues-details', item._id]"
-              class="btn btn-default btn-xl mb-4"
-            >
-              <img class="img-fluid" [src]="baseImgUrl + item.covermedia" />
-            </a>
-          </div>
-          <div class="col-md-12">
-            <a [routerLink]="['/issues-details', item._id]" class="">
-              <div class="text-center feature-name">{{ item.title }}</div>
-            </a>
-          </div>
+          <mat-card class="example-card mb-3">
+            <mat-card-header>
+              <img
+                mat-card-image
+                class="pl-2 card-image pr-4"
+                src="{{ baseImgUrl + item.covermedia }}"
+                alt="{{ item.title }}"
+                [routerLink]="['/issues-details', item._id]"
+              />
+              <mat-card-title [routerLink]="['/issues-details', item._id]">{{ item.title }}</mat-card-title>          
+              <mat-card-subtitle><p>{{ item.description }}</p></mat-card-subtitle>
+              <mat-card-title>
+                <mat-card-actions>
+                  <button mat-icon-button class="buy-icon" color="basic" aria-label="buy" >
+                    <mat-icon>shopping_cart</mat-icon>
+                    <span>Buy Now</span>
+                  </button>
+                  <button mat-icon-button class="wishlist-icon" color="basic" aria-label="Wishlist" *ngIf="!wishlisted" (click)="AddtoWishlist()">
+                    <mat-icon>favorite_border</mat-icon>
+                    <span>Wishlist</span>
+                  </button>
+                  <button mat-icon-button class="wishlist-icon" color="basic" aria-label="Wishlist" *ngIf="wishlisted" (click)="AddtoWishlist()">
+                    <mat-icon>favorite</mat-icon>
+                    <span>Wishlist</span>
+                  </button>
+                </mat-card-actions>
+              </mat-card-title>
+            </mat-card-header>
+          </mat-card>
         </div>
       </div>
     </div>

@@ -1,0 +1,65 @@
+.card-image {
+    height: 170px;
+    width: 150px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.header-txt,
+mat-card-subtitle,
+mat-card-title {
+    color: black;
+}
+
+h4, h6 {
+    color: black;
+}
+mat-card-title {
+    font-size: 22px; 
+    font-weight: 500;
+    margin-left: 25%;
+    cursor: pointer;
+}
+mat-card-subtitle {
+    margin-left: 25%;
+    background-color: rgb(226, 221, 221);
+    border-radius: 5px;
+}
+
+mat-card-subtitle p {    
+    color: black;
+    padding: 2%;
+    min-height: 100px;
+}
+mat-card-header{
+    display: flex;
+}
+mat-raised-button{
+    border: 0px 0px 0px 0px;
+    outline: none;
+}
+.mat-raised-button
+{
+    border: 0px 0px 0px 0px;
+    outline: none;  
+}
+.mat-icon-button
+{
+    margin-left: 5%;
+    outline: none;  
+}
+
+.buy-icon {
+    float: left;
+}
+
+.wishlist-icon {
+    float: right;
+    margin-right: 40%;
+}
+
+.mat-card-actions {
+    margin-left: 20px;
+    margin-right: 0px;
+    padding: 0px;
+}

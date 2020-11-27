@@ -1,12 +1,12 @@
 <div class="container" style="padding-top: 100px">
-  <div class="row justify-content-center slice slice-sm">
+  <div class="row justify-content-center slice">
     <div class="example-loading-shade" *ngIf="isLoading">
       <mat-spinner *ngIf="isLoading"></mat-spinner>
     </div>
     <div class="col-12 col-xl-6 mb-3" *ngIf="!isLoading">    
-      <div class="mb-3" style="text-align: center;">
+      <!-- <div class="mb-3" style="text-align: center;">
         <h3>Details</h3>
-      </div>
+      </div> -->
 
       <mat-card class="example-card mb-3">
         <mat-card-header>
@@ -16,10 +16,29 @@
             src="{{ data.covermedia }}"
             alt="{{ data.title }}"
           />
-          <mat-card-title>{{ data.title }}</mat-card-title>
-          <!-- addition icons for buy and price check -->
-          <mat-card-subtitle>{{ data.description }}</mat-card-subtitle>
+          <mat-card-title>{{ data.title }}</mat-card-title>          
+          <mat-card-subtitle><p>{{ data.description }}</p></mat-card-subtitle>
+          <mat-card-title>
+            <mat-card-actions>
+              <button mat-icon-button class="buy-icon" color="basic" aria-label="buy" >
+                <mat-icon>shopping_cart</mat-icon>
+                <span>Buy Now</span>
+              </button>
+              <button mat-icon-button class="wishlist-icon" color="basic" aria-label="Wishlist" *ngIf="!wishlisted" (click)="AddtoWishlist()">
+                <mat-icon>favorite_border</mat-icon>
+                <span>Wishlist</span>
+              </button>
+              <button mat-icon-button class="wishlist-icon" color="basic" aria-label="Wishlist" *ngIf="wishlisted" (click)="AddtoWishlist()">
+                <mat-icon>favorite</mat-icon>
+                <span>Wishlist</span>
+              </button>
+            </mat-card-actions>
+          </mat-card-title>
         </mat-card-header>
+      </mat-card>
+
+      <mat-card class="example-card mb-3">
+        <mat-card-subtitle class="nomar"><p>{{ data.description }}</p></mat-card-subtitle>
       </mat-card>
 
       <mat-card class="example-card mb-3">
@@ -50,21 +69,6 @@
               </tr>
             </tbody>
           </table>
-          <mat-card-actions>
-            
-            <button mat-icon-button color="basic" aria-label="buy" >
-              <mat-icon>shopping_cart</mat-icon>
-              <span>Buy Now</span>
-            </button>
-            <button mat-icon-button color="basic" aria-label="Wishlist" *ngIf="!wishlisted" (click)="AddtoWishlist()">
-              <mat-icon>favorite_border</mat-icon>
-              <span>Wishlist</span>
-            </button>
-            <button mat-icon-button color="basic" aria-label="Wishlist" *ngIf="wishlisted" (click)="AddtoWishlist()">
-              <mat-icon>favorite</mat-icon>
-              <span>Wishlist</span>
-            </button>
-          </mat-card-actions>
         </mat-card-content>
       </mat-card>
     </div>
