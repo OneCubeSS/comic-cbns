@@ -50,6 +50,21 @@
               </tr>
             </tbody>
           </table>
+          <mat-card-actions>
+            
+            <button mat-icon-button color="basic" aria-label="buy" >
+              <mat-icon>shopping_cart</mat-icon>
+              <span>Buy Now</span>
+            </button>
+            <button mat-icon-button color="basic" aria-label="Wishlist" *ngIf="!wishlisted" (click)="AddtoWishlist()">
+              <mat-icon>favorite_border</mat-icon>
+              <span>Wishlist</span>
+            </button>
+            <button mat-icon-button color="basic" aria-label="Wishlist" *ngIf="wishlisted" (click)="AddtoWishlist()">
+              <mat-icon>favorite</mat-icon>
+              <span>Wishlist</span>
+            </button>
+          </mat-card-actions>
         </mat-card-content>
       </mat-card>
     </div>
