@@ -2,16 +2,15 @@
 <section class="slice slice-lg header-main">
   <div class="container-fluid bg-cover">
     <div class="row hero-row">
-      <div class="col col-lg-7 offset-lg-1 landing-logo mt-4">
-        <div class="row">
-          <div class="col col-lg-8 text-center">
+      <div class="col col-lg-7 landing-logo">
+        <div class="row text-left">
+          <div class="col col-lg-8">
             <!-- <img
               src="https://media.keycollectorcomics.com/static/img/brand/text_logo.2699c36c5587.png"
               class="text-logo"
             /> -->
             <h1 class="text-logo">
-              CBNS<br />
-              COMIC HUNTERS
+              CBNS COMIC HUNTERS
             </h1>
             <h2 class="lead text-white mt-4">
               The World’s Most Comprehensive Database &amp; Price Guide of Key
@@ -39,8 +38,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="d-none d-lg-block col-lg-8 mt-3 text-center">
-            <h2 class="text-white">Download the FREE app now!</h2>
+          <div class="d-none d-lg-block col-lg-8 mt-3">
+            <h2 class="text-white mb-3">Download the FREE app now!</h2>
             <a
               href="https://itunes.apple.com/us/app/key-collector-comics-app/id1189623811?mt=8"
             >
@@ -60,7 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="d-none col-lg-3 d-lg-block align-self-end">
+      <div class="d-none col-lg-3 d-lg-block align-self-end mt-3">
         <img
           src="https://media.keycollectorcomics.com/static/img/brand/key-collector-iphone.d2af4e148538.png"
           class="landing-phone"
@@ -72,27 +71,20 @@
 <!-- End Main Header -->
 
 <!-- Search section -->
-<section class="slice slice-sm bg-section-secondary">
+<section class="slice slice-sm bg-section-secondary pt-5">
   <div class="container">
     <h2 class="text-center text-section">SEARCH OPTIONS</h2>
     <hr class="section-divider -faded-edges" />
     <div class="slice slice-sm">
       <div class="row justify-content-center">
         <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
-          <a href="/search-titles/" class="btn btn-block">Search Titles</a>
+          <a [routerLink]="['/series']" class="btn btn-block">Search Titles</a>
         </div>
         <div class="col-12 col-sm-5 col-md-6 col-lg-3 btn-search">
           <a href="/search-characters/" class="btn btn-block mt-2 mt-sm-0"
             >Search Characters</a
           >
         </div>
-        <!-- <div
-          class="col-12 col-sm-5 col-md-6 col-lg-3 mt-sm-4 mt-lg-0 btn-search"
-        >
-          <a href="/recent/" class="btn btn-block mt-2 mt-sm-0"
-            >Recently Added</a
-          >
-        </div> -->
       </div>
     </div>
   </div>
@@ -102,7 +94,7 @@
 <!-- Category section -->
 <section class="slice slice-sm bg-section-secondary">
   <div class="container">
-    <h2 class="text-center text-section">SPOTLIGHT CATEGORIES</h2>
+    <h2 class="text-center text-section">PUBLISHERS</h2>
     <hr class="section-divider -faded-edges" />
     <div class="slice slice-sm">
       <div class="example-loading-shade" *ngIf="isLoadingCats">
@@ -111,21 +103,20 @@
 
       <div class="row justify-content-center" *ngIf="checkData(dataCat)">
         <div
-          class="col-6 col-sm-4 col-md-3 mb-5"
+          class="product"
           *ngFor="let item of dataCat; let i = index"
         >
-          <div class="col-md-12">
-            <a
-              [routerLink]="['/publisher/series', item._id]"
-              class="btn btn-default btn-xl mb-4"
-            >
-              <img class="img-fluid" [src]="baseImgUrl + item.covermedia" />
-            </a>
-          </div>
-          <div class="col-md-12">
-            <a [routerLink]="['/publisher/series', item._id]" class="">
-              <div class="text-center feature-name">{{ item.title }}</div>
-            </a>
+          <div class="product-card">
+            <div class="mb-2">
+              <a [routerLink]="['/publisher/series', item._id]">
+                <img class="img-fluid" [src]="baseImgUrl + item.covermedia"/>
+              </a>
+              </div>
+            <div class="product-info text-center mt-2">
+              <a [routerLink]="['/publisher/series', item._id]" class="">
+                <h5>{{ item.title }}</h5>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -137,7 +128,7 @@
 <!-- Category section -->
 <section class="slice slice-sm bg-section-secondary">
   <div class="container">
-    <h2 class="text-center text-section">WHAT ARE TRENDING ISSUES</h2>
+    <h2 class="text-center text-section">TRENDING ISSUES</h2>
     <hr class="section-divider -faded-edges" />
     <div class="slice slice-sm">
       <div class="row justify-content-center"></div>

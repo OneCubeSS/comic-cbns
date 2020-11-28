@@ -34,6 +34,10 @@ mat-card-subtitle p {
 mat-card-header{
     display: flex;
 }
+::ng-deep .mat-card-header-text {
+    margin: 0px !important;
+    margin-left: 30px !important;
+}
 mat-raised-button{
     border: 0px 0px 0px 0px;
     outline: none;
@@ -63,3 +67,9 @@ mat-raised-button{
     margin-right: 0px;
     padding: 0px;
 }
+
+@media (min-width: 992px)  {
+    .feature-name {
+        padding-right: 0px;
+    }
+  }
